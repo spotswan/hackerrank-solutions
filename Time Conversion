@@ -1,0 +1,92 @@
+import java.io.*;
+import java.math.*;
+import java.text.*;
+import java.util.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    /*
+     * Complete the timeConversion function below.
+     */
+    static String timeConversion(String s) {
+        String s1="";
+        String s2="";
+        String s3="";
+        String s4="";
+        String s5="";
+        String s6="00";
+        String s7="";
+        String s8="";
+        String s9="";
+        String s10="";
+
+        if (s.charAt(8)=='P')
+        {
+            for (int i=0;i<=1; i++)
+            {
+               s1= s1+s.charAt(i);
+            }
+            if (s1.equals("12"))
+            { for(int i=0;i<(s.length()-2);i++)
+            {
+              s9=s9+s.charAt(i);
+            }
+            return s9;
+            }
+            else
+            {
+                for (int i=0;i<=1;i++)
+                {
+                     s2= s2+s.charAt(i);
+                    
+                }
+                int fen= Integer.parseInt(s2); fen= fen+12;
+                 s3=""+fen;
+                for (int i=2;i<(s.length()-2);i++)
+                {
+                    s4= s4+s.charAt(i);
+                }
+                 s5= s3+s4; return s5;
+            
+            }
+        
+        }
+        else
+        {
+             for (int i=0;i<=1; i++)
+            {
+               s1= s1+s.charAt(i);
+            }
+            if (s1.equals("12"))
+            { 
+                for(int i=2;i<(s.length()-2);i++)
+                {
+                  s7= s7+s.charAt(i);
+                }
+            s8=s6+s7;
+            return s8; 
+            }
+            else {for(int i=0;i<(s.length()-2);i++)
+            {
+              s10=s10+s.charAt(i);
+            }return s10;}
+        }
+
+    }
+
+    private static final Scanner scan = new Scanner(System.in);
+
+    public static void main(String[] args) throws IOException {
+        BufferedWriter bw = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        String s = scan.nextLine();
+
+        String result = timeConversion(s);
+
+        bw.write(result);
+        bw.newLine();
+
+        bw.close();
+    }
+}
