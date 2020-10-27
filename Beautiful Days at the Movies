@@ -8,21 +8,27 @@ import java.util.regex.*;
 
 public class Solution {
 
-    // Complete the angryProfessor function below.
-    static String angryProfessor(int k, int[] a) {
-        int c=0;
-        for (int i=0;i<a.length;i++){
-            if(a[i]<=0){
-                c++;
+    // Complete the beautifulDays function below.
+    static int beautifulDays(int i, int j, int k) {
+        int count=0; 
+        for (int l=i;l<=j;l++){
+            int temp=l;
+            int d=0;
+            int rev=0;
+            
+            while(temp>0){
+                d=temp%10;
+                rev=(rev*10)+d;
+                temp=temp/10;}
+            int diff=rev-l;
+            int diff2=Math.abs(diff);
+            if((diff2%k)==0){
+                count++;
             }
+            
         }
-        if (k<=c){
-            return ("NO");
-        }
-        else 
-        {
-            return ("YES");
-        }
+        return count ;
+
 
     }
 
@@ -31,31 +37,18 @@ public class Solution {
     public static void main(String[] args) throws IOException {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
-        int t = scanner.nextInt();
-        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+        String[] ijk = scanner.nextLine().split(" ");
 
-        for (int tItr = 0; tItr < t; tItr++) {
-            String[] nk = scanner.nextLine().split(" ");
+        int i = Integer.parseInt(ijk[0]);
 
-            int n = Integer.parseInt(nk[0]);
+        int j = Integer.parseInt(ijk[1]);
 
-            int k = Integer.parseInt(nk[1]);
+        int k = Integer.parseInt(ijk[2]);
 
-            int[] a = new int[n];
+        int result = beautifulDays(i, j, k);
 
-            String[] aItems = scanner.nextLine().split(" ");
-            scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
-
-            for (int i = 0; i < n; i++) {
-                int aItem = Integer.parseInt(aItems[i]);
-                a[i] = aItem;
-            }
-
-            String result = angryProfessor(k, a);
-
-            bufferedWriter.write(result);
-            bufferedWriter.newLine();
-        }
+        bufferedWriter.write(String.valueOf(result));
+        bufferedWriter.newLine();
 
         bufferedWriter.close();
 
