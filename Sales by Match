@@ -1,0 +1,44 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the sockMerchant function below.
+def sockMerchant(n, ar):
+    counter=0
+    l1=[]
+    
+    for i in ar:
+        if i in l1:
+            continue
+        else:
+            l1.append(i)
+    l2=[0]*len(l1)
+    for i in ar:
+        for j in range (len(l1)):
+            if (i==l1[j]):
+                l2[j]+=1
+    for i in l2:
+        if i!=0 and i%2==0:
+            counter+=int(i/2)
+        elif i!=0 and i!=1:
+            counter+=int(i/2)
+    return counter
+
+        
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    ar = list(map(int, input().rstrip().split()))
+
+    result = sockMerchant(n, ar)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
