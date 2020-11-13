@@ -1,0 +1,36 @@
+#!/bin/python3
+
+def Digits(n):
+    
+    temp=n
+    d=0
+    ls=[]
+    
+    while (temp>0):
+        d=int(temp%10)
+        ls.append(d)
+        temp=int(temp/10)
+    
+    count=0
+    
+    for i in ls:
+        if(i==0):
+            continue
+        else:
+            if (n%i==0):
+                count+=1
+                
+    print(count)
+    
+def main():
+    
+    q = int(input())
+    
+    for i in range(q):
+        n=int(input())
+        Digits(n)
+        
+main()
+        
+        
+        
