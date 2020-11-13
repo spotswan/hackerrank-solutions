@@ -1,0 +1,30 @@
+#!/bin/python3
+
+import math
+
+def catandmouse(x, y, z):
+    diff1 = abs(x-z)
+    diff2 = abs(y-z)
+    
+    if(diff1==diff2):
+        print('Mouse C')
+    elif(diff1>diff2):
+        print('Cat B')
+    else:
+        print('Cat A')
+        
+def main():
+    
+    y = int(input())
+    
+    for i in range(y):
+        xyz= input().split()
+        
+        x= int(xyz[0])
+        y= int(xyz[1])
+        z= int(xyz[2])
+        
+        catandmouse(x, y, z)
+        
+main()
+        
